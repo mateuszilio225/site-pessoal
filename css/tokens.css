@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light;
+
+  /* Cor */
+  --bg: #ffffff;
+  --bg-subtle: #f7f7fa;
+  --surface: #ffffff;
+  --border: #e4e4ec;
+  --text: #17171f;
+  --text-muted: #5c5c6e;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-contrast: #ffffff;
+  --accent-soft: #f3eeff;
+  --focus-ring: #7c3aed;
+
+  /* Tipografia */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  --text-xl: clamp(1.25rem, 2vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 3vw, 1.875rem);
+  --text-3xl: clamp(1.75rem, 4vw, 2.25rem);
+  --text-4xl: clamp(2rem, 5vw, 3rem);
+  --text-5xl: clamp(2.5rem, 7vw, 4rem);
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --tracking-tight: -0.02em;
+
+  /* Espaço (escala de 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Layout */
+  --container: 1100px;
+  --prose: 65ch;
+  --gutter: clamp(16px, 5vw, 32px);
+  --section-y: clamp(56px, 9vw, 112px);
+
+  /* Forma */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Sombra */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.08);
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 400ms;
+
+  /* Camadas */
+  --z-header: 100;
+  --z-overlay: 200;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0e0e13;
+  --bg-subtle: #15151c;
+  --surface: #17171f;
+  --border: #2a2a36;
+  --text: #f2f2f7;
+  --text-muted: #a1a1b2;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-contrast: #14101f;
+  --accent-soft: rgb(124 58 237 / 0.16);
+  --focus-ring: #a78bfa;
+  --shadow-sm: none;
+  --shadow-md: none;
+}
