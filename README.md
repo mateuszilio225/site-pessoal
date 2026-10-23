@@ -6,6 +6,7 @@ Site pessoal de mateuszilio225 — portfólio de projetos publicado no GitHub Pa
 
 ## Documentação
 
+- [`TODO.md`](./TODO.md) — plano de execução passo a passo, com verificações e testes.
 - [`SPECS.md`](./SPECS.md) — especificação completa: escopo, design system, requisitos,
   modelo de dados, critérios de aceite e decisões.
 - [`AGENTS.md`](./AGENTS.md) — diretrizes de trabalho para o agente (papel de designer,

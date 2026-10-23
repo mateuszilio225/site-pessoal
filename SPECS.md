@@ -248,20 +248,31 @@ Breakpoints (mobile-first):
 | 3 | Contato | `contato` | `h2`, frase de chamada, e-mail {{EMAIL}}, GitHub, LinkedIn |
 | 4 | Rodapé | — | © {{ANO}} {{NOME}} · "Feito com HTML, CSS e JS" |
 
-### 8.1 Placeholders de conteúdo (bloqueiam o deploy final)
+### 8.1 Dados de conteúdo
 
-| Placeholder | Onde | Observação |
+Confirmados pelo usuário em 2026-10-23:
+
+| Campo | Valor | Uso |
 |---|---|---|
-| `{{NOME}}` | `h1`, `<title>`, rodapé, iniciais do fallback | — |
-| `{{CARGO}}` | Hero | ex.: "Desenvolvedor Front-end" |
-| `{{BIO}}` | Hero | máx. 2 frases, 1ª pessoa |
-| `{{EMAIL}}` | Contato + `mailto:` | — |
-| `{{LINKEDIN}}` | Contato | URL completa |
-| `{{GITHUB}}` | Contato | já definido: `https://github.com/mateuszilio225` |
-| `{{LOCALIZACAO}}` | Hero (opcional) | ex.: "São Paulo, Brasil" |
+| Nome exibido | `Mateus` | `h1`, `<title>`, rodapé, iniciais do fallback (`M`) |
+| Cargo | `Estudante de Ciência da Computação` | Subtítulo do hero |
+| Bio (PT) | `Curso Ciência da Computação em Passo Fundo, RS.` | Hero |
+| Bio (EN) | `I study Computer Science in Passo Fundo, Brazil.` | Hero |
+| E-mail | `mateuszilio225@gmail.com` | Seção de contato + `mailto:` |
+| LinkedIn | `https://www.linkedin.com/in/mateus-zilio/` | Contato (sem parâmetros `?trk=`) |
+| GitHub | `https://github.com/mateuszilio225` | Contato |
+| Localização | `Passo Fundo, RS, Brasil` | Hero (opcional) |
 
-> O site **não deve ir ao ar** com placeholders visíveis. Antes do primeiro deploy real,
-> todos precisam ser substituídos (ou o bloco correspondente removido).
+Pendências (não bloqueiam a implementação, bloqueiam apenas o conteúdo final):
+
+| Pendência | Comportamento até ser resolvida |
+|---|---|
+| Sobrenome ("Zilio"?) | Exibir apenas `Mateus`; troca pontual em 3 locais (ver `TODO.md` T-5.4) |
+| Foto de perfil | Fallback de iniciais `M` (bloco com `--accent-soft` e `--accent`) |
+| Lista de projetos | Apenas `site-pessoal` (dados reais deste repositório) |
+
+> O site **não deve ir ao ar** com placeholders `{{...}}` visíveis. Antes do deploy,
+> `grep` por `{{` deve retornar zero ocorrências (ver `TODO.md` T-5.1).
 
 ---
 
