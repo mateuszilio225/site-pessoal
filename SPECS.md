@@ -1,7 +1,7 @@
 # SPECS — Site pessoal / portfólio de projetos
 
-**Versão:** 1.0 (planejamento)
-**Status:** aprovado para implementação — nenhum arquivo de site foi criado ainda
+**Versão:** 1.0 (implementado e publicado em 2026-10-23)
+**Status:** no ar em https://mateuszilio225.github.io/site-pessoal/
 **Última atualização:** 2026-10-23
 **Documento irmão:** [`AGENTS.md`](./AGENTS.md) (como o agente deve trabalhar)
 
