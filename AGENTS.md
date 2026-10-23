@@ -275,8 +275,9 @@ Uma tarefa só está concluída quando:
 3. Atualize `SPECS.md` §7 e `README.md`.
 
 ### Trocar a foto
-1. Substitua `assets/foto.webp` (quadrada, ≥ 600×600, < 150 KB).
-2. Mantenha o fallback de iniciais para quando a imagem falhar.
+1. Salve a imagem em `assets/foto.webp` (quadrada, ≥ 600×600, < 150 KB).
+2. Adicione o `<img id="hero-photo">` em `.hero__media` conforme o `README.md`.
+3. O `js/main.js` troca imagem ↔ iniciais automaticamente (carregou = foto, falhou = iniciais).
 
 ---
 

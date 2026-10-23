@@ -326,9 +326,7 @@ Dentro de `<body>`, antes do `<main>`:
   <section class="hero" id="inicio" aria-labelledby="hero-title">
     <div class="container hero__inner">
       <div class="hero__media">
-        <img class="hero__photo" id="hero-photo" src="assets/foto.webp" width="240" height="240"
-             alt="Foto de Mateus" data-i18n-attr="alt:a11y.photo" decoding="async">
-        <span class="hero__initials" id="hero-initials" aria-hidden="true" hidden>M</span>
+        <span class="hero__initials" id="hero-initials" aria-hidden="true">M</span>
       </div>
 
       <div class="hero__content">
@@ -346,8 +344,9 @@ Dentro de `<body>`, antes do `<main>`:
   </section>
 ```
 
-**Regras:** existe **um único `<h1>`** na página. A foto usa `width`/`height` explícitos.
-O bloco de iniciais começa `hidden` e só aparece se a imagem falhar (T-4.6).
+**Regras:** existe **um único `<h1>`** na página. Sem foto, o bloco de iniciais é o estado
+padrão (acompanha o tema). Ao adicionar `assets/foto.webp`, inclua o `<img id="hero-photo">`
+antes do `span` — o JS alterna imagem ↔ iniciais conforme o carregamento (ver `README.md`).
 
 ### T-2.4 Seção de projetos
 
@@ -888,9 +887,11 @@ No console: `window.PROJECTS = []; renderProjects('pt')`.
 Depois recarregue para restaurar.
 
 ### T-6.11 Fallback da foto
-Renomeie `assets/foto.webp` para `assets/foto-temp.webp` e recarregue.
-**Esperado:** círculo com "M" no lugar da foto, sem ícone de imagem quebrada.
-Restaure o nome depois (se você ainda não tem foto, mantenha o fallback e siga).
+Estado atual: sem foto, o hero mostra o bloco de iniciais `M` (acompanha o tema). Para testar o
+fallback, adicione temporariamente o `<img id="hero-photo" src="assets/nao-existe.webp">` em
+`.hero__media` e recarregue.
+**Esperado:** a imagem quebrada não aparece; as iniciais continuam visíveis.
+Remova o `<img>` de teste depois.
 
 ### T-6.12 Contraste
 DevTools → Elements → selecionar textos e conferir o "Contrast ratio" nos dois temas.
@@ -904,38 +905,29 @@ DevTools → Elements → selecionar textos e conferir o "Contrast ratio" nos do
 
 ### T-7.1 Sintaxe JS
 
+Se houver Node.js instalado:
+
 ```powershell
 Get-ChildItem js\*.js | ForEach-Object { node --check $_.FullName }
 ```
 
 **Esperado:** nenhuma saída (sucesso).
 
+Se **não** houver Node (caso desta máquina): a verificação equivalente é abrir a página no
+navegador e confirmar **zero erros** no Console (T-6.1). Um erro de sintaxe impede todo o
+`main.js`, portanto o tema, o idioma e os cards não funcionariam — falha visível.
+
 ### T-7.2 Paridade de chaves i18n
 
-Crie `tools/check-i18n.js` (pasta nova, não é publicada):
-
-```js
-const fs = require("fs");
-const vm = require("vm");
-const code = fs.readFileSync("js/i18n.js", "utf8");
-const ctx = { window: {} };
-vm.createContext(ctx);
-vm.runInContext(code, ctx);
-const { pt, en } = ctx.window.I18N;
-const missing = Object.keys(pt).filter((k) => !(k in en));
-const extra = Object.keys(en).filter((k) => !(k in pt));
-if (missing.length || extra.length) {
-  console.error("FALHOU", { missing, extra });
-  process.exit(1);
-}
-console.log("i18n OK:", Object.keys(pt).length, "chaves");
-```
-
 ```powershell
-node tools/check-i18n.js
+powershell -ExecutionPolicy Bypass -File tools/check-i18n.ps1
 ```
 
-**Esperado:** `i18n OK: 32 chaves` (o número deve bater com a tabela de T-4.2).
+**Esperado:** `i18n OK: 32 chaves`.
+
+O script compara os blocos `pt` e `en` de `js/i18n.js` e lista chaves faltantes ou sobrando.
+(Se houver Node.js, um equivalente em JS também serve; o script PowerShell não precisa de
+nenhuma dependência.)
 
 ### T-7.3 Chaves usadas x chaves definidas
 
