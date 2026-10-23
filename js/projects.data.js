@@ -12,7 +12,7 @@ window.PROJECTS = [
     year: 2026,
     status: "live",
     repo: "https://github.com/mateuszilio225/site-pessoal",
-    demo: null,
+    demo: "https://mateuszilio225.github.io/site-pessoal/",
     image: null,
     featured: true
   }
